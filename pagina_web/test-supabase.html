@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Supabase - Alerta Escolar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .status {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .test-form {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🧪 Test de Integración Supabase</h1>
+        <p>Esta página te permite verificar que la integración con Supabase esté funcionando correctamente.</p>
+
+        <div id="config-status" class="status info">
+            Verificando configuración...
+        </div>
+
+        <div id="connection-status" class="status info">
+            Verificando conexión...
+        </div>
+
+        <h2>Test de Formulario</h2>
+        <div class="test-form">
+            <form id="test-form">
+                <div class="form-group">
+                    <label for="tipo-solicitud">Tipo de Solicitud:</label>
+                    <select id="tipo-solicitud" name="tipo-solicitud" required>
+                        <option value="test">Test de Integración</option>
+                        <option value="demo-gratuito">Demo Gratuito</option>
+                        <option value="cotizacion-personalizada">Cotización Personalizada</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" value="test@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">WhatsApp:</label>
+                    <input type="tel" id="telefono" name="telefono" value="+52-664-123-4567">
+                </div>
+
+                <div class="form-group">
+                    <label for="institucion">Nombre de la Institución:</label>
+                    <input type="text" id="institucion" name="institucion" value="Escuela Test" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo-institucion">Tipo de Institución:</label>
+                    <select id="tipo-institucion" name="tipo-institucion" required>
+                        <option value="escuela-privada">Escuela Privada</option>
+                        <option value="primaria">Primaria</option>
+                        <option value="secundaria">Secundaria</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cantidad-alumnos">Cantidad de Alumnos:</label>
+                    <select id="cantidad-alumnos" name="cantidad-alumnos" required>
+                        <option value="50-100">50 - 100 estudiantes</option>
+                        <option value="101-300">101 - 300 estudiantes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="responsable">Responsable:</label>
+                    <input type="text" id="responsable" name="responsable" value="Test User - Director" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje"
+                        rows="3">Este es un mensaje de prueba para verificar la integración con Supabase.</textarea>
+                </div>
+
+                <button type="submit">Enviar Test</button>
+            </form>
+        </div>
+
+        <h2>Log de Eventos</h2>
+        <div id="log" class="log"></div>
+
+        <h2>Instrucciones</h2>
+        <ol>
+            <li>Verifica que la configuración esté correcta (arriba)</li>
+            <li>Si la conexión es exitosa, puedes probar el formulario</li>
+            <li>Revisa el log para ver los detalles de la operación</li>
+            <li>Verifica en tu dashboard de Supabase que el registro se haya creado</li>
+        </ol>
+    </div>
+
+    <script src="supabase-config.js"></script>
+    <script>
+        const log = document.getElementById('log');
+        const configStatus = document.getElementById('config-status');
+        const connectionStatus = document.getElementById('connection-status');
+
+        function addLog(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            log.textContent += `[${timestamp}] ${message}\n`;
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function updateStatus(element, type, message) {
+            element.className = `status ${type}`;
+            element.textContent = message;
+        }
+
+        // Verificar configuración
+        function checkConfig() {
+            addLog('Verificando configuración de Supabase...');
+
+            if (!window.SUPABASE_CONFIG) {
+                updateStatus(configStatus, 'error', '❌ Error: SUPABASE_CONFIG no está definido');
+                addLog('ERROR: window.SUPABASE_CONFIG no está disponible');
+                return false;
+            }
+
+            if (window.SUPABASE_CONFIG.url === 'YOUR_SUPABASE_URL_HERE' ||
+                window.SUPABASE_CONFIG.anonKey === 'YOUR_SUPABASE_ANON_KEY_HERE') {
+                updateStatus(configStatus, 'error', '❌ Error: Credenciales de Supabase no configuradas');
+                addLog('ERROR: Las credenciales en supabase-config.js no han sido actualizadas');
+                return false;
+            }
+
+            updateStatus(configStatus, 'success', '✅ Configuración de Supabase correcta');
+            addLog('SUCCESS: Configuración de Supabase verificada');
+            addLog(`URL: ${window.SUPABASE_CONFIG.url}`);
+            addLog(`API Key: ${window.SUPABASE_CONFIG.anonKey.substring(0, 20)}...`);
+            return true;
+        }
+
+        // Verificar conexión
+        async function checkConnection() {
+            addLog('Verificando conexión con Supabase...');
+
+            try {
+                const response = await fetch(`${window.SUPABASE_CONFIG.url}/rest/v1/contacto_webpage?select=count`, {
+                    method: 'GET',
+                    headers: {
+                        'apikey': window.SUPABASE_CONFIG.anonKey,
+                        'Authorization': `Bearer ${window.SUPABASE_CONFIG.anonKey}`
+                    }
+                });
+
+                if (response.ok) {
+                    updateStatus(connectionStatus, 'success', '✅ Conexión con Supabase exitosa');
+                    addLog('SUCCESS: Conexión con Supabase verificada');
+                } else {
+                    updateStatus(connectionStatus, 'error', `❌ Error de conexión: ${response.status}`);
+                    addLog(`ERROR: Error de conexión - Status: ${response.status}`);
+                }
+            } catch (error) {
+                updateStatus(connectionStatus, 'error', '❌ Error de conexión');
+                addLog(`ERROR: ${error.message}`);
+            }
+        }
+
+        // Manejar envío del formulario de test
+        document.getElementById('test-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            addLog('Iniciando test de envío de formulario...');
+
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+
+            addLog('Datos del formulario:');
+            addLog(JSON.stringify(data, null, 2));
+
+            try {
+                const supabaseData = {
+                    tipo_solicitud: data['tipo-solicitud'],
+                    correo: data['email'],
+                    telefono: data['telefono'] || null,
+                    nombre_institucion: data['institucion'],
+                    tipo_institucion: data['tipo-institucion'],
+                    cantidad_alumnos: data['cantidad-alumnos'],
+                    responsable: data['responsable'],
+                    mensaje: data['mensaje'] || null
+                };
+
+                addLog('Enviando datos a Supabase...');
+
+                const response = await fetch(`${window.SUPABASE_CONFIG.url}/rest/v1/contacto_webpage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': window.SUPABASE_CONFIG.anonKey,
+                        'Authorization': `Bearer ${window.SUPABASE_CONFIG.anonKey}`,
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify(supabaseData)
+                });
+
+                if (response.ok) {
+                    addLog('SUCCESS: Datos enviados correctamente a Supabase');
+                    addLog('Verifica en tu dashboard de Supabase que el registro se haya creado');
+                    alert('✅ Test exitoso! Los datos se enviaron correctamente a Supabase.');
+                } else {
+                    const errorData = await response.text();
+                    addLog(`ERROR: Error al enviar datos - Status: ${response.status}`);
+                    addLog(`Error details: ${errorData}`);
+                    alert(`❌ Error al enviar datos: ${response.status}`);
+                }
+            } catch (error) {
+                addLog(`ERROR: ${error.message}`);
+                alert(`❌ Error: ${error.message}`);
+            }
+        });
+
+        // Inicializar verificaciones
+        document.addEventListener('DOMContentLoaded', function () {
+            if (checkConfig()) {
+                checkConnection();
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://alertaescolar.com/sitemap.xml
+
+# Disallow admin areas (if they exist in the future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Allow important directories
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# Specific crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Google specific settings
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing specific settings  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block specific bots if needed (uncomment if necessary)
+# User-agent: BadBot
+# Disallow: / 
