@@ -20,13 +20,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="credenciales-escolares-styles.css">
+
     <link rel="stylesheet" href="sistema-control-styles.css">
 
 
 </head>
 
 <body>
-    <!-- Header/Navigation -->
     <header class="header">
         <nav class="nav container">
             <div class="nav__logo">
@@ -34,31 +35,25 @@
                 <span class="nav__logo-text">Alerta Escolar</span>
             </div>
             <ul class="nav__menu" id="nav-menu">
-                <li class="nav__item">
-                    <a href="index.html" class="nav__link">Inicio</a>
+                <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                <li class="nav__item"><a href="panel-administrativo.html" class="nav__link">Interfaz Administrativa</a>
                 </li>
-                <li class="nav__item">
-                    <a href="index.html#como-funciona" class="nav__link">Cómo Funciona</a>
+                <li class="nav__item"><a href="app-padres.html" class="nav__link">Interfaz para Padres</a></li>
+                <li class="nav__item"><a href="credenciales-escolares.html" class="nav__link">Credenciales Escolares</a>
                 </li>
-                <li class="nav__item">
-                    <a href="hardware-control-asistencia.html" class="nav__link">Hardware</a>
-                </li>
-                <li class="nav__item">
-                    <a href="credenciales-pvc.html" class="nav__link">Credenciales PVC</a>
-                </li>
-                <li class="nav__item">
-                    <button class="nav__link nav__cta" onclick="openPricingForm()">Solicitar Demo</button>
-                </li>
+                <li class="nav__item"><button class="nav__link nav__cta" onclick="openPricingForm()">Solicitar
+                        Demo</button></li>
             </ul>
             <div class="nav__toggle" id="nav-toggle">
-                <i class="fas fa-bars"></i>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
 
 
 
-    <!-- Hero Section -->
     <section class="hero software-hero">
         <div class="container">
             <div class="hero__content">
@@ -81,7 +76,6 @@
         </div>
     </section>
 
-    <!-- Two Sides Section -->
     <section class="section two-sides-section">
         <div class="container">
             <div class="section__header">
@@ -95,10 +89,10 @@
             </div>
 
             <div class="sides-container">
-                <!-- Lado Administrativo -->
                 <div class="side-option admin">
                     <div class="side-icon-large admin">
-                        <i class="fas fa-users-cog"></i>
+                        <img src="images/escaner_qr.png" alt="Escáner QR (PNG sin fondo)"
+                            style="max-width:140px;width:auto;display:block;margin:18px auto 18px auto;">
                     </div>
                     <h3>Interfaz Administrativa</h3>
                     <p>Vista completa de gestión para administradores escolares. La misma aplicación te presenta
@@ -119,10 +113,10 @@
                     </a>
                 </div>
 
-                <!-- Lado Padre de Familia -->
                 <div class="side-option parent">
                     <div class="side-icon-large parent">
-                        <i class="fas fa-mobile-alt"></i>
+                        <img src="images/lado_padre/home_view.png" alt="Vista App Padres (PNG sin fondo)"
+                            style="max-width:90px;width:auto;display:block;margin:18px auto 18px auto;">
                     </div>
                     <h3>Interfaz para Padres</h3>
                     <p>Vista simplificada y familiar para padres de familia. El mismo sistema se adapta para mostrar la
@@ -146,7 +140,6 @@
         </div>
     </section>
 
-    <!-- Compatibilidad Multiplataforma -->
     <section class="section platform-compatibility" id="caracteristicas">
         <div class="container">
             <div class="section__header">
@@ -218,7 +211,6 @@
         </div>
     </section>
 
-    <!-- Personalización y Experiencia -->
     <section class="section modern-customization">
         <div class="container">
             <div class="section__header">
@@ -231,7 +223,6 @@
             </div>
 
             <div class="modern-features-grid">
-                <!-- Modo Claro/Oscuro -->
                 <div class="modern-feature-card theme-card">
                     <div class="card-header">
                         <div class="icon-container theme-icon">
@@ -274,7 +265,6 @@
                     </div>
                 </div>
 
-                <!-- Idiomas Disponibles -->
                 <div class="modern-feature-card language-card">
                     <div class="card-header">
                         <div class="icon-container language-icon">
@@ -333,7 +323,180 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <section class="section hardware-lending-section">
+        <div class="container">
+            <img src="images/main_hardware.png" alt="Hardware principal"
+                style="max-width: 340px; width: 100%; display: block; margin: 0 auto 32px auto; border-radius: 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.10);">
+            <div class="section__header">
+                <div class="section__badge">
+                    <i class="fas fa-handshake"></i>
+                    <span>HARDWARE PROFESIONAL INCLUIDO</span>
+                </div>
+                <h2 class="section__title">Equipamiento Completo<br><span class="title-accent">Incluido</span></h2>
+                <p class="section__description">
+                    El hardware profesional está incluido en tu membresía anual. Sin compra, sin preocupaciones, con
+                    mantenimiento completo y actualizaciones constantes.
+                </p>
+            </div>
+            <div class="lending-grid">
+                <div class="lending-card primary">
+                    <div class="lending-card__header">
+                        <div class="lending-card__icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="lending-card__badge">Sin Costo</div>
+                    </div>
+                    <h3 class="lending-card__title">Préstamo sin Costo</h3>
+                    <p class="lending-card__description">
+                        El hardware está completamente incluido en tu membresía anual. No necesitas comprarlo ni
+                        preocuparte por su mantenimiento.
+                    </p>
+                    <div class="lending-card__features">
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Sin costo de compra
+                                inicial</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Mantenimiento completo
+                                incluido</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Reemplazo inmediato en caso
+                                de fallas</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Actualizaciones de hardware
+                                constantes</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Soporte técnico
+                                dedicado</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Instalación profesional
+                                gratuita</span></div>
+                    </div>
+                    <a href="#componentes" class="lending-card__btn"><span>Ver Componentes Incluidos</span><i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="lending-card secondary">
+                    <div class="lending-card__header">
+                        <div class="lending-card__icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="lending-card__badge">Personalizada</div>
+                    </div>
+                    <h3 class="lending-card__title">Escalabilidad Personalizada</h3>
+                    <p class="lending-card__description">
+                        Analizamos las necesidades específicas de tu escuela para determinar la cantidad exacta de
+                        equipos necesarios.
+                    </p>
+                    <div class="lending-card__features">
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Evaluación personalizada del
+                                espacio</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Cantidad de kits según
+                                matrícula</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Distribución estratégica por
+                                edificios</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Sincronización automática
+                                entre equipos</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Gestión centralizada
+                                unificada</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Reportes consolidados de toda
+                                la escuela</span></div>
+                    </div>
+                    <a href="index.html#contacto" class="lending-card__btn"><span>Evaluar Necesidades</span><i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section components-section" id="componentes">
+        <div class="container">
+            <div class="section__header">
+                <div class="section__badge">
+                    <i class="fas fa-microchip"></i>
+                    <span>COMPONENTES INCLUIDOS</span>
+                </div>
+                <h2 class="section__title">4 Componentes<br><span class="title-accent">Profesionales</span> en Préstamo
+                </h2>
+                <p class="section__description">
+                    Todo el equipamiento necesario está incluido en tu membresía. Hardware profesional seleccionado para
+                    garantizar máximo rendimiento y durabilidad.
+                </p>
+            </div>
+            <div class="platform-grid">
+                <div class="platform-detail-extended">
+                    <div class="platform-header">
+                        <i class="fas fa-tablet-alt"></i>
+                        <div>
+                            <h3>Galaxy Tab A9+ (Gama Media)</h3>
+                            <p>Tablet Android optimizada para uso escolar</p>
+                        </div>
+                    </div>
+                    <div class="platform-features">
+                        <h4>Especificaciones principales:</h4>
+                        <ul>
+                            <li>✓ Procesador Snapdragon 695 5G</li>
+                            <li>✓ 8GB RAM + 128GB almacenamiento</li>
+                            <li>✓ Pantalla 11" 1920x1200 IPS</li>
+                            <li>✓ Batería 7,040 mAh</li>
+                            <li>✓ Android 13 actualizable</li>
+                            <li>✓ 2 años de garantía Samsung</li>
+                            <li>✓ Rendimiento óptimo para aplicaciones escolares</li>
+                            <li>✓ Construcción robusta para uso intensivo</li>
+                        </ul>
+                    </div>
+                    <div class="download-section">
+                        <div class="component-badge-new"><span>Componente Principal</span></div>
+                        <div class="rating"><span>⭐ Incluido</span><small>en membresía</small></div>
+                    </div>
+                </div>
+                <div class="platform-detail-extended">
+                    <div class="platform-header">
+                        <i class="fas fa-qrcode"></i>
+                        <div>
+                            <h3>Lector QR Físico</h3>
+                            <p>Escáner QR de alta velocidad</p>
+                        </div>
+                    </div>
+                    <div class="platform-features">
+                        <h4>Características del lector:</h4>
+                        <ul>
+                            <li>✓ Lectura QR instantánea (&lt;0.5s)</li>
+                            <li>✓ Conexión USB-C a tablet</li>
+                            <li>✓ Sensor CMOS de alta resolución</li>
+                            <li>✓ LED de iluminación integrado</li>
+                            <li>✓ Lectura más rápida que cámara</li>
+                            <li>✓ Funciona en cualquier condición de luz</li>
+                            <li>✓ Mayor precisión y confiabilidad</li>
+                            <li>✓ Diseño ergonómico para uso frecuente</li>
+                        </ul>
+                    </div>
+                    <div class="download-section">
+                        <div class="component-badge-new"><span>Alta Velocidad</span></div>
+                        <div class="rating"><span>⭐ Incluido</span><small>en membresía</small></div>
+                    </div>
+                </div>
+                <div class="platform-detail-extended">
+                    <div class="platform-header">
+                        <i class="fas fa-arrows-alt"></i>
+                        <div>
+                            <h3>Soporte Ajustable</h3>
+                            <p>Posicionamiento óptimo de la tablet</p>
+                        </div>
+                    </div>
+                    <div class="platform-features">
+                        <h4>Características del soporte:</h4>
+                        <ul>
+                            <li>✓ Altura ajustable 30-50cm</li>
+                            <li>✓ Rotación 360° y inclinación</li>
+                            <li>✓ Sistema de seguridad anti-robo</li>
+                            <li>✓ Base estable y antideslizante</li>
+                            <li>✓ Posicionamiento ergonómico perfecto</li>
+                            <li>✓ Seguridad contra robos</li>
+                            <li>✓ Fácil acceso para mantenimiento</li>
+                            <li>✓ Adaptable a cualquier espacio</li>
+                        </ul>
+                    </div>
+                    <div class="download-section">
+                        <div class="component-badge-new"><span>Ergonómico</span></div>
+                        <div class="rating"><span>⭐ Incluido</span><small>en membresía</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section cta-section">
         <div class="container">
             <div class="cta-content">
@@ -355,7 +518,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -374,7 +536,7 @@
                     <ul class="footer-links">
                         <li><a href="sistema-control-asistencia-escolar.html">Software</a></li>
                         <li><a href="hardware-control-asistencia.html">Hardware</a></li>
-                        <li><a href="credenciales-pvc.html">Credenciales PVC</a></li>
+                        <li><a href="credenciales-escolares.html">Credenciales Escolares</a></li>
                     </ul>
                 </div>
 
@@ -394,11 +556,9 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="supabase-config.js"></script>
     <script src="script.js"></script>
 
-    <!-- Contact Form Modal (idéntico al de index.html) -->
     <div class="modal" id="pricing-modal" onclick="handleModalClick(event)">
         <div class="modal-content">
             <div class="modal-header">
@@ -477,7 +637,6 @@
         </div>
     </div>
 
-    <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/526645290620" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>

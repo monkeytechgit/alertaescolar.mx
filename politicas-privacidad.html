@@ -8,21 +8,17 @@
     <meta name="description"
         content="Política de privacidad de Alerta Escolar. Conoce cómo protegemos y manejamos tu información personal.">
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="politicas-privacidad-styles.css">
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
+        <div class="navbar-container">
             <div class="navbar-brand">
                 <img src="images/alertaescolar_logo.png" alt="Alerta Escolar" class="navbar-logo">
                 <span class="navbar-title">Alerta Escolar</span>
@@ -40,11 +36,19 @@
                     <i class="fas fa-mobile-alt"></i>
                     <span>Interfaz Padres</span>
                 </a>
+                <a href="credenciales-escolares.html" class="navbar-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>Credenciales Escolares</span>
+                </a>
+            </div>
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -70,11 +74,9 @@
         </div>
     </section>
 
-    <!-- Privacy Content -->
     <section class="privacy-content">
         <div class="container">
             <div class="privacy-layout">
-                <!-- Table of Contents -->
                 <aside class="privacy-sidebar">
                     <div class="sidebar-content">
                         <h3>Contenido</h3>
@@ -93,7 +95,6 @@
                     </div>
                 </aside>
 
-                <!-- Main Content -->
                 <main class="privacy-main">
                     <div class="privacy-section" id="introduccion">
                         <h2>1. Introducción</h2>
@@ -500,7 +501,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -539,9 +539,26 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM loaded');
+
+            const navbarToggle = document.querySelector('.navbar-toggle');
+            const navbarMenu = document.querySelector('.navbar-menu');
+
+            console.log('Toggle element:', navbarToggle);
+            console.log('Menu element:', navbarMenu);
+
+            if (navbarToggle && navbarMenu) {
+                navbarToggle.addEventListener('click', function () {
+                    console.log('Toggle clicked');
+                    navbarMenu.classList.toggle('active');
+                    navbarToggle.classList.toggle('active');
+                    console.log('Menu active:', navbarMenu.classList.contains('active'));
+                });
+            }
+        });
+
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -553,14 +570,12 @@
                         block: 'start'
                     });
 
-                    // Update active link
                     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
                 }
             });
         });
 
-        // Update active link on scroll
         window.addEventListener('scroll', function () {
             const sections = document.querySelectorAll('.privacy-section');
             const navLinks = document.querySelectorAll('.nav-link');
@@ -579,6 +594,15 @@
                     link.classList.add('active');
                 }
             });
+        });
+
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
     </script>
 </body>

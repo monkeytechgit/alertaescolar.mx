@@ -71,7 +71,7 @@ Página web oficial de **Alerta Escolar**, sistema líder en control de asistenc
   - Soporte ajustable profesional
   - Lector QR físico
   - Batería externa
-  - Credenciales PVC personalizadas
+  - Credenciales Escolares personalizadas
 - **Servicios incluidos**:
   - Instalación profesional
   - Sistema centralizado adaptable
@@ -160,20 +160,16 @@ Página web oficial de **Alerta Escolar**, sistema líder en control de asistenc
 
 ### **Meta Tags Implementados**
 ```html
-<!-- SEO Básico -->
 <title>Sistema de Control de Asistencia Escolar con QR | Notificaciones en Tiempo Real</title>
 <meta name="description" content="Sistema líder en control de asistencia escolar...">
 <meta name="keywords" content="control asistencia escolar, sistema QR...">
 
-<!-- Open Graph -->
 <meta property="og:title" content="...">
 <meta property="og:description" content="...">
 <meta property="og:image" content="...">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Schema.org -->
 <script type="application/ld+json">{...}</script>
 ```
 

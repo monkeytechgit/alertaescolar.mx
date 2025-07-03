@@ -100,6 +100,27 @@
 </head>
 
 <body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="images/alertaescolar_logo.png" alt="Alerta Escolar" class="nav__logo-img">
+                <span class="nav__logo-text">Alerta Escolar</span>
+            </div>
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                <li class="nav__item"><a href="panel-administrativo.html" class="nav__link">Interfaz Administrativa</a>
+                </li>
+                <li class="nav__item"><a href="app-padres.html" class="nav__link">Interfaz para Padres</a></li>
+                <li class="nav__item"><a href="credenciales-escolares.html" class="nav__link">Credenciales Escolares</a>
+                </li>
+                <li class="nav__item"><button class="nav__link nav__cta" onclick="openPricingForm()">Solicitar
+                        Demo</button></li>
+            </ul>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
     <div class="container">
         <h1>🧪 Test de Integración Supabase</h1>
         <p>Esta página te permite verificar que la integración con Supabase esté funcionando correctamente.</p>

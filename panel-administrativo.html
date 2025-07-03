@@ -8,49 +8,42 @@
     <meta name="description"
         content="Panel de control administrativo completo para gestión escolar integral. Dashboard en tiempo real, control de asistencia, comunicados masivos y gestión estudiantil centralizada.">
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="credenciales-escolares-styles.css">
+
     <link rel="stylesheet" href="panel-administrativo-styles.css">
 </head>
 
 <body>
-    <!-- Modern Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-brand">
-                <img src="images/alertaescolar_logo.png" alt="Alerta Escolar" class="navbar-logo">
-                <span class="navbar-title">Alerta Escolar</span>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="images/alertaescolar_logo.png" alt="Alerta Escolar" class="nav__logo-img">
+                <span class="nav__logo-text">Alerta Escolar</span>
             </div>
-            <div class="navbar-menu">
-                <a href="index.html" class="navbar-item">
-                    <i class="fas fa-home"></i>
-                    <span>Inicio</span>
-                </a>
-                <a href="panel-administrativo.html" class="navbar-item active">
-                    <i class="fas fa-cogs"></i>
-                    <span>Interfaz Administrativa</span>
-                </a>
-                <a href="app-padres.html" class="navbar-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>Interfaz para Padres</span>
-                </a>
-            </div>
-            <div class="navbar-toggle">
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                <li class="nav__item"><a href="panel-administrativo.html" class="nav__link">Interfaz Administrativa</a>
+                </li>
+                <li class="nav__item"><a href="app-padres.html" class="nav__link">Interfaz para Padres</a></li>
+                <li class="nav__item"><a href="credenciales-escolares.html" class="nav__link">Credenciales Escolares</a>
+                </li>
+                <li class="nav__item"><button class="nav__link nav__cta" onclick="openPricingForm()">Solicitar
+                        Demo</button></li>
+            </ul>
+            <div class="nav__toggle" id="nav-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
     <section class="admin-hero">
         <div class="container">
             <h1>Panel de Control Administrativo Integral</h1>
@@ -85,7 +78,6 @@
         </div>
     </section>
 
-    <!-- Dashboard Showcase Section -->
     <section id="dashboard-showcase" class="dashboard-showcase">
         <div class="container">
             <div class="showcase-header">
@@ -169,7 +161,6 @@
         </div>
     </section>
 
-    <!-- Student Management Showcase -->
     <section class="student-management-showcase alternate-layout">
         <div class="container">
             <div class="showcase-header fade-in-up">
@@ -255,7 +246,6 @@
         </div>
     </section>
 
-    <!-- Communications Center Showcase -->
     <section class="communications-showcase diagonal-layout">
         <div class="container">
             <div class="showcase-header fade-in-right">
@@ -340,7 +330,6 @@
         </div>
     </section>
 
-    <!-- Attendance Control Showcase -->
     <section class="attendance-showcase zigzag-layout">
         <div class="container">
             <div class="showcase-header fade-in-up">
@@ -428,7 +417,6 @@
         </div>
     </section>
 
-    <!-- Schedule Management Showcase -->
     <section class="schedule-showcase curved-layout">
         <div class="container">
             <div class="showcase-header fade-in-left">
@@ -512,7 +500,6 @@
         </div>
     </section>
 
-    <!-- School Configuration Showcase -->
     <section class="config-showcase floating-layout">
         <div class="container">
             <div class="showcase-header fade-in-right">
@@ -596,7 +583,6 @@
         </div>
     </section>
 
-    <!-- QR Scanner Showcase -->
     <section class="scanner-showcase pulse-layout">
         <div class="container">
             <div class="showcase-header fade-in-up">
@@ -682,7 +668,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="final-cta">
         <div class="container">
             <div class="cta-content">
@@ -713,7 +698,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -752,19 +736,17 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="supabase-config.js"></script>
     <script src="script.js"></script>
     <script>
         // Modern navbar functionality
         document.addEventListener('DOMContentLoaded', function () {
-            const navbarToggle = document.querySelector('.navbar-toggle');
-            const navbarMenu = document.querySelector('.navbar-menu');
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
 
-            if (navbarToggle && navbarMenu) {
-                navbarToggle.addEventListener('click', function () {
-                    navbarMenu.classList.toggle('active');
-                    navbarToggle.classList.toggle('active');
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function () {
+                    navMenu.classList.toggle('show-menu');
                 });
             }
 
@@ -782,13 +764,13 @@
                 });
             });
 
-            // Add scroll effect to navbar
+            // Add scroll effect to header
             window.addEventListener('scroll', function () {
-                const navbar = document.querySelector('.navbar');
+                const header = document.querySelector('.header');
                 if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
+                    header.classList.add('scroll-header');
                 } else {
-                    navbar.classList.remove('scrolled');
+                    header.classList.remove('scroll-header');
                 }
             });
 
@@ -853,7 +835,6 @@
         }
     </script>
 
-    <!-- Contact Form Modal (idéntico al de index.html) -->
     <div class="modal" id="pricing-modal" onclick="handleModalClick(event)">
         <div class="modal-content">
             <div class="modal-header">
@@ -932,7 +913,6 @@
         </div>
     </div>
 
-    <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/526645290620" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>

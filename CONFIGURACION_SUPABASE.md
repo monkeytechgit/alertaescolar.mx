@@ -83,7 +83,7 @@ Todas las siguientes páginas incluyen formularios que se envían a la tabla `co
 - `sistema-control-asistencia-escolar.html` - Software de control
 - `hardware-control-asistencia.html` - Hardware de control
 - `panel-administrativo.html` - Panel administrativo
-- `credenciales-pvc.html` - Credenciales PVC
+- `credenciales-escolares.html` - Credenciales Escolares
 - `preguntas-frecuentes.html` - Preguntas frecuentes
 
 ### Campos del Formulario

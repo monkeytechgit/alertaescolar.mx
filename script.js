@@ -2,13 +2,32 @@
 function openPricingForm(buttonType = 'demo') {
     const modal = document.getElementById('pricing-modal');
     const tipoSolicitudSelect = document.getElementById('tipo-solicitud');
+    const pricingForm = document.getElementById('pricing-form');
 
-    // Set default selection based on button type
-    if (buttonType === 'cotizacion' || buttonType === 'quote') {
-        tipoSolicitudSelect.value = 'cotizacion-personalizada';
-    } else {
-        tipoSolicitudSelect.value = 'demo-gratuito';
+    // Limpiar el formulario siempre que se abre
+    if (pricingForm) pricingForm.reset();
+
+    // Mapear el valor del botón al valor del select
+    let selectValue = '';
+    switch (buttonType) {
+        case 'impresion-independiente':
+        case 'cotizacion-impresion':
+            selectValue = 'cotizacion-impresion';
+            break;
+        case 'sistema-completo':
+            selectValue = 'sistema-completo';
+            break;
+        case 'consulta':
+        case 'consulta-gratuita':
+            selectValue = 'consulta-gratuita';
+            break;
+        case 'muestra-diseno':
+            selectValue = 'muestra-diseno';
+            break;
+        default:
+            selectValue = '';
     }
+    if (tipoSolicitudSelect) tipoSolicitudSelect.value = selectValue;
 
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
@@ -304,6 +323,7 @@ function animateCounters() {
 // === NAVBAR SCROLL EFFECT ===
 window.addEventListener('scroll', function () {
     const header = document.querySelector('.header');
+    if (!header) return;
     if (window.scrollY > 100) {
         header.classList.add('scrolled');
     } else {
@@ -453,7 +473,7 @@ window.addEventListener('resize', function () {
 function openComingSoonDialog(category) {
     const messages = {
         'Hardware': '📱 La página detallada del Hardware estará disponible muy pronto.\n\n🔧 Mientras tanto, conoce más sobre nuestro equipo profesional que incluye:\n• Galaxy Tab A9+ optimizada\n• Lector QR de alta velocidad \n• Soporte ajustable premium\n• Batería externa de larga duración',
-        'Credenciales PVC': '🎫 La página detallada de las Credenciales PVC estará disponible muy pronto.\n\n✨ Mientras tanto, conoce las características de nuestras credenciales:\n• Material PVC resistente y duradero\n• Diseño personalizado con colores institucionales\n• Código QR único por estudiante\n• Acabado profesional de alta calidad'
+        'Credenciales Escolares': '🎫 La página detallada de las Credenciales Escolares estará disponible muy pronto.\n\n✨ Mientras tanto, conoce las características de nuestras credenciales:\n• Material PVC resistente y duradero\n• Diseño personalizado con colores institucionales\n• Código QR único por estudiante\n• Acabado profesional de alta calidad'
     };
 
     const message = messages[category] || `La página detallada de ${category} estará disponible muy pronto.`;

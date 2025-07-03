@@ -1,3 +1,5 @@
+@import url('credenciales-escolares-styles.css');
+
 /* Panel Administrativo - Interface Showcase Styles */
 
 /* CSS Variables */
@@ -14,114 +16,14 @@
     --text-secondary: #4a5568;
     --border-radius: 20px;
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Additional variables for navbar toggle */
+    --white: #ffffff;
+    --gray-100: #f1f5f9;
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-/* Modern Navbar Styles */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    transition: var(--transition);
-    padding: 0;
-}
-
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 30px;
-}
-
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--text-primary);
-}
-
-.navbar-logo {
-    height: 35px;
-    width: auto;
-}
-
-.navbar-title {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--text-primary);
-}
-
-.navbar-menu {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.navbar-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 500;
-    font-size: 0.95rem;
-    padding: 12px 20px;
-    border-radius: 50px;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.navbar-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-    transition: left 0.3s ease;
-    z-index: -1;
-}
-
-.navbar-item:hover::before,
-.navbar-item.active::before {
-    left: 0;
-}
-
-.navbar-item:hover,
-.navbar-item.active {
-    color: #667eea;
-    transform: translateY(-2px);
-}
-
-.navbar-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 8px;
-    gap: 4px;
-}
-
-.navbar-toggle span {
-    width: 25px;
-    height: 3px;
-    background: var(--text-primary);
-    border-radius: 2px;
-    transition: var(--transition);
-}
+/* Navbar styles are now imported from credenciales-escolares-styles.css */
 
 /* Enhanced Hero Section */
 .admin-hero {
@@ -1637,37 +1539,7 @@
 }
 
 @media (max-width: 768px) {
-    .navbar-container {
-        padding: 12px 20px;
-    }
-
-    .navbar-title {
-        font-size: 1.2rem;
-    }
-
-    .navbar-menu {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        gap: 0;
-        padding: 20px 0;
-        transform: translateY(-100vh);
-        opacity: 0;
-        transition: var(--transition);
-    }
-
-    .navbar-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    .navbar-toggle {
-        display: flex;
-    }
+    /* Navbar responsive styles are now imported from credenciales-escolares-styles.css */
 
     .admin-hero h1 {
         font-size: 3rem;

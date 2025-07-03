@@ -36,6 +36,12 @@
 
     /* Fonts */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Additional variables for navbar toggle */
+    --white: #ffffff;
+    --gray-100: #f1f5f9;
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* === RESET & BASE === */
@@ -215,8 +221,18 @@ p {
 
 .nav__toggle {
     display: none;
-    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 4px;
     cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav__toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
 /* === HERO SECTION === */
@@ -231,6 +247,28 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+}
+
+.hero__text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero__video-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__content--centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero__title {
@@ -908,10 +946,11 @@ p {
 }
 
 /* === RESPONSIVE === */
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
     .nav__menu {
         position: fixed;
         top: 80px;
+        bottom: 0;
         left: 0;
         right: 0;
         background: white;
@@ -931,13 +970,36 @@ p {
     }
 
     .nav__toggle {
-        display: block;
+        display: flex;
+    }
+
+    .nav__toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav__toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav__toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
     }
 
     .hero__content {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .hero__video-col {
+        margin-top: 1.5rem;
+    }
+
+    .hero__video-container {
+        max-width: 100vw;
+    }
+
+    .video-wrapper {
+        max-width: 100vw;
     }
 
     .hero__title {
@@ -1022,5 +1084,19 @@ p {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .nav__menu.show-menu .nav__item:last-child,
+    .nav__menu.active .nav__item:last-child {
+        margin-bottom: 2rem;
+    }
+
+    .nav__menu .nav__item:last-child .nav__link,
+    .nav__menu .nav__item:last-child .nav__cta {
+        margin-bottom: 2rem;
+        display: inline-block;
     }
 }
