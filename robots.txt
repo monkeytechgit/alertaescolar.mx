@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://alertaescolar.com/sitemap.xml
+Sitemap: https://alertaescolar.mx/sitemap.xml
 
 # Disallow admin areas (if they exist in the future)
 Disallow: /admin/
