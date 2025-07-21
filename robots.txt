@@ -14,6 +14,7 @@ Allow: /images/
 # Prevent indexing of utility pages
 Disallow: /seo-validation.html
 Disallow: /seo-fixes.html
+Disallow: /test-supabase.html
 
 # Sitemaps
 Sitemap: https://alertaescolar.mx/sitemap.xml
