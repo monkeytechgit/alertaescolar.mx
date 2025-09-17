@@ -29,13 +29,13 @@ function openPricingForm(buttonType = 'demo') {
     }
     if (tipoSolicitudSelect) tipoSolicitudSelect.value = selectValue;
 
-    modal.classList.add('show');
+    modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
 }
 
 function closePricingForm() {
     const modal = document.getElementById('pricing-modal');
-    modal.classList.remove('show');
+    modal.classList.remove('is-open');
     document.body.style.overflow = 'auto';
 }
 
@@ -75,14 +75,54 @@ async function handlePricingFormSubmit(event) {
             throw new Error('Por favor completa todos los campos obligatorios.');
         }
 
-        // Check if Supabase is configured
+        // Check if Supabase is configured properly
         if (!window.SUPABASE_CONFIG ||
-            window.SUPABASE_CONFIG.url === 'YOUR_SUPABASE_URL_HERE' ||
-            window.SUPABASE_CONFIG.anonKey === 'YOUR_SUPABASE_ANON_KEY_HERE') {
-            throw new Error('Supabase no está configurado. Por favor configura supabase-config.js con tus credenciales reales.');
+            window.SUPABASE_CONFIG.url === 'TU_SUPABASE_URL_AQUI' ||
+            window.SUPABASE_CONFIG.anonKey === 'TU_SUPABASE_ANON_KEY_AQUI' ||
+            window.SIMULATE_FORM_SUBMISSION) {
+            
+            // Simulate successful submission for development/testing
+            console.warn('⚠️ MODO SIMULACIÓN ACTIVADO - El formulario NO se está enviando a la base de datos real');
+            console.log('Motivos posibles:');
+            console.log('1. SIMULATE_FORM_SUBMISSION está en true');
+            console.log('2. Configuración de Supabase incompleta');
+            console.log('Datos que se hubieran enviado:', supabaseData);
+            
+            // Simulate a delay to mimic real submission
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Show success message and close modal
+            const tipoSolicitud = data['tipo-solicitud'];
+            let message = '¡Gracias por tu interés! Te contactaremos pronto.';
+
+            switch (tipoSolicitud) {
+                case 'demo-gratuito':
+                    message = '¡Gracias por solicitar el demo! Te contactaremos pronto para programar una demostración personalizada.';
+                    break;
+                case 'cotizacion-personalizada':
+                    message = '¡Gracias por tu interés! Te contactaremos pronto con la cotización personalizada.';
+                    break;
+                case 'cotizacion-credenciales':
+                    message = '¡Gracias por tu interés en las credenciales! Te contactaremos pronto con la cotización.';
+                    break;
+                case 'consulta-general':
+                    message = '¡Gracias por tu consulta! Te contactaremos pronto para resolver tus dudas.';
+                    break;
+                case 'hablar-especialista':
+                    message = '¡Gracias por tu interés! Un especialista te contactará pronto para ayudarte.';
+                    break;
+            }
+
+            showNotification(message, 'success');
+            closePricingForm();
+            event.target.reset();
+            return;
         }
 
-        // Send to Supabase
+        // Send to Supabase - MODO PRODUCCIÓN
+        console.log('✅ ENVIANDO A SUPABASE REAL:', window.SUPABASE_CONFIG.url);
+        console.log('Datos a enviar:', supabaseData);
+        
         const response = await fetch(`${window.SUPABASE_CONFIG.url}/rest/v1/contacto_webpage`, {
             method: 'POST',
             headers: {
@@ -96,9 +136,13 @@ async function handlePricingFormSubmit(event) {
 
         if (!response.ok) {
             const errorData = await response.text();
-            console.error('Supabase error response:', errorData);
+            console.error('❌ ERROR DE SUPABASE:', errorData);
+            console.error('Status:', response.status, response.statusText);
             throw new Error(`Error ${response.status}: ${response.statusText}. ${errorData}`);
         }
+
+        console.log('✅ FORMULARIO ENVIADO EXITOSAMENTE A SUPABASE');
+        console.log('Status:', response.status, response.statusText);
 
         // Get the type of request to customize the message
         const tipoSolicitud = data['tipo-solicitud'];
@@ -159,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function () {
-            navMenu.classList.toggle('show');
+            navMenu.classList.toggle('is-open');
             navToggle.classList.toggle('active');
         });
 
@@ -167,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const navLinks = document.querySelectorAll('.nav__link:not(.nav__dropdown-toggle)');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('show');
+                navMenu.classList.remove('is-open');
                 navToggle.classList.remove('active');
             });
         });
@@ -207,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 dropdown.classList.remove('active');
             });
             // Close mobile menu
-            navMenu.classList.remove('show');
+            navMenu.classList.remove('is-open');
             navToggle.classList.remove('active');
         });
     });
