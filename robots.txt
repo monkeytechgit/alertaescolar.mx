@@ -1,0 +1,21 @@
+# robots.txt for alertaescolar.mx
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /sistema-control-asistencia-escolar.html
+Allow: /credenciales-escolares.html
+Allow: /app-padres.html
+Allow: /panel-administrativo.html
+Allow: /preguntas-frecuentes.html
+Allow: /terminos-servicio.html
+Allow: /politicas-privacidad.html
+Allow: /images/
+
+# Prevent indexing of utility pages
+Disallow: /seo-validation.html
+Disallow: /seo-fixes.html
+Disallow: /test-supabase.html
+
+# Sitemaps
+Sitemap: https://alertaescolar.mx/sitemap.xml
+Sitemap: https://alertaescolar.mx/sitemap-images.xml
