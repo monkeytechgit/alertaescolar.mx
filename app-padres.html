@@ -107,6 +107,53 @@
     ]
   }
   </script>
+    <style>
+    .app-hero{padding-block:clamp(56px,9vw,132px);background:linear-gradient(180deg,#fff 0%,#fff 55%,var(--bg-soft) 100%);}    
+    .app-hero__layout{display:grid;gap:var(--space-10);grid-template-columns:1fr;}    
+    @media (min-width:1024px){.app-hero__layout{grid-template-columns:1.05fr .95fr;align-items:center;}}
+    .app-hero__title{font-size:clamp(40px,4.2vw,60px);line-height:1.05;letter-spacing:-.025em;font-weight:700;}
+    .app-hero__subtitle{margin-top:var(--space-3);font-size:var(--text-lg);color:var(--muted);}
+    .app-hero__description{margin-top:var(--space-5);font-size:var(--text-base);color:var(--muted);max-width:60ch;line-height:1.45;}
+    .app-hero-media{position:relative;display:flex;justify-content:center;}
+  .app-hero-media img{max-width:340px;width:100%;height:auto;display:block;border-radius:24px;}    
+
+    /* Videos sección */
+    .tutoriales-app{background:var(--bg);}
+    .videos-grid{display:grid;gap:var(--space-8);margin-top:var(--space-8);}    
+  @media (min-width:640px){.videos-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  .video-card{background:var(--surface);border:1px solid var(--line);padding:18px;border-radius:var(--r-xl);display:flex;flex-direction:column;gap:var(--space-3);transition:box-shadow var(--duration) var(--easing), transform var(--duration) var(--easing);}    
+    .video-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.05);}    
+  .video-card__title{font-size:clamp(16px,1.4vw,20px);letter-spacing:-.01em;}
+  .video-wrapper{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:16px;background:#000;}
+    .video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+  /* Screens sección (layout tipo kit-component rows) */
+  .screens-section{background:var(--bg-soft);}    
+  .app-screens-rows{margin-top:var(--space-8);display:grid;gap:var(--space-12);}    
+  .app-screen-row{display:grid;gap:var(--space-8);align-items:center;}
+  .app-screen-row{grid-template-columns:1fr;}    
+  @media (min-width:1024px){.app-screen-row{grid-template-columns:1fr 1.1fr;gap:var(--space-12);} .app-screen-row--reverse{grid-template-columns:1.1fr 1fr;} .app-screen-row--reverse .app-screen-row__content{order:1;} .app-screen-row--reverse .app-screen-row__image{order:2;}}
+  .app-screen-row__image{display:flex;justify-content:center;align-items:center;}
+  .app-screen-row__image-inner{border:none;border-radius:16px;padding:0;max-width:300px;width:100%;}
+  .app-screen-row__image-inner img{width:100%;display:block;border-radius:16px;box-shadow:none !important;background:transparent;}
+  .dual-images-inline{display:grid;gap:var(--space-4);}    
+  @media (min-width:520px){.dual-images-inline{grid-template-columns:1fr 1fr;}}
+  .dual-images-inline img{border:1px solid var(--line);background:#fff;}
+  /* Notificaciones: ampliar y limpiar estilo */
+  .app-screen-row__image-inner--notifications{max-width:420px;}
+  .app-screen-row__image-inner--notifications .dual-images-inline img{border:none;background:transparent;box-shadow:none !important;}
+  .app-screen-row__content h3{font-size:clamp(24px,2.2vw,34px);letter-spacing:-.02em;margin-bottom:var(--space-3);}    
+  .app-screen-row__content p{font-size:var(--text-base);color:var(--muted);line-height:1.5;max-width:60ch;margin-bottom:var(--space-4);}    
+  .app-screen-row__features{display:flex;flex-wrap:wrap;gap:var(--space-2);}    
+  .app-screen-row__features .feature-tag{background:var(--bg-soft);color:var(--muted);border:1px solid var(--line);font-size:var(--text-xs);padding:6px 12px;border-radius:999px;font-weight:500;}    
+
+    /* Notificaciones dobles (dos imágenes apiladas) */
+    .dual-images{display:grid;gap:var(--space-4);}    
+    @media (min-width:480px){.dual-images{grid-template-columns:1fr 1fr;}}
+
+    /* CTA final */
+    .cta-final{background:var(--bg-soft);}
+  </style>
 
   <link rel="canonical" href="https://alertaescolar.mx/app-padres.html" />
   <link rel="alternate" hreflang="es" href="https://alertaescolar.mx/app-padres.html" />

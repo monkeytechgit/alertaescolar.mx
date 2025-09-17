@@ -126,7 +126,54 @@
     ]
   }
   </script>
-
+<style>
+    /* Página: Sistema Control Asistencia (añadidos mínimos reutilizando tokens) */
+    .asistencia-hero{padding-block:clamp(64px,10vw,140px);background:linear-gradient(180deg,#fff 0%,#fff 40%,var(--bg-soft) 100%);}    
+    .asistencia-hero__layout{display:grid;gap:var(--space-8);grid-template-columns:1fr;}    
+    @media (min-width:1024px){.asistencia-hero__layout{grid-template-columns:1.1fr 1fr;}}
+    .asistencia-hero__title{font-size:clamp(40px,4.2vw,62px);line-height:1.05;letter-spacing:-.025em;font-weight:700;}
+    .asistencia-hero__subtitle{margin-top:var(--space-4);font-size:var(--text-lg);color:var(--muted);max-width:60ch;}
+    .asistencia-hero__image{position:relative;width:100%;display:block;border:0;background:transparent;padding:0;}
+    .asistencia-hero__image img{max-width:350px;width:100%;height:auto;display:block;object-fit:contain;}
+    .perspectivas{display:grid;gap:var(--space-8);margin-top:var(--space-12);}    
+    @media (min-width:1024px){.perspectivas{grid-template-columns:1fr 1fr;}}
+    .perspectiva-card{background:var(--surface);border:1px solid var(--line);padding:var(--space-6);border-radius:var(--r-xl);display:flex;flex-direction:column;gap:var(--space-4);position:relative;overflow:hidden;}
+    .perspectiva-card:hover{background:var(--bg-soft);}    
+    .perspectiva-card__media{background:transparent;border:0;padding:0;}
+    .perspectiva-card__media img{max-width:260px;margin-inline:auto;box-shadow:none;border:0;background:none;}
+    /* Opción 1: tamaño reducido solo para App Padres */
+    .perspectiva-card--padres .perspectiva-card__media img{max-width:200px;}
+    .perspectiva-card__title{font-size:clamp(24px,2.2vw,34px);letter-spacing:-.02em;}
+    .feature-list{display:grid;gap:10px;margin:0;padding:0;}
+    .feature-list li{display:flex;align-items:flex-start;gap:10px;font-size:var(--text-sm);color:var(--text);line-height:1.35;}
+    .feature-list li i{font-size:1em;color:var(--accent);margin-top:3px;}
+    .perspectiva-card__cta{margin-top:var(--space-4);display:flex;gap:12px;flex-wrap:wrap;}
+    /* Hardware */
+    .hardware-section{background:var(--bg);}
+    .hardware-grid{display:grid;gap:var(--space-6);margin-top:var(--space-8);grid-template-columns:1fr;}    
+    @media (min-width:640px){.hardware-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}}
+    @media (min-width:1024px){.hardware-grid{grid-template-columns:repeat(3,1fr);gap:var(--space-8);} }
+    .hardware-card{background:var(--surface);border:1px solid var(--line);padding:var(--space-4);border-radius:var(--r-xl);display:flex;flex-direction:column;gap:var(--space-4);align-items:flex-start;text-align:left;width:100%;max-width:100%;}
+    @media (min-width:768px){.hardware-card{padding:var(--space-6);}}
+    .hardware-card:hover{background:var(--bg-soft);}    
+    .hardware-card__media{background:transparent;border:0;padding:0;width:100%;overflow:hidden;}
+    .hardware-card__media img{box-shadow:none;border:0;background:none;width:100%;height:auto;object-fit:contain;}
+    .hardware-card__title{margin-top:4px;font-size:clamp(18px,1.8vw,28px);text-align:left;}
+    .spec-list{display:grid;gap:6px;font-size:var(--text-xs);color:var(--muted);margin-top:4px;justify-items:start;text-align:left;}
+    .spec-list strong{color:var(--text);font-weight:600;}
+    .hardware-note{margin-top:var(--space-4);font-size:var(--text-sm);color:var(--muted);}
+    .hardware-card--scanner .hardware-card__media img{max-width:min(100%, 470px);} /* responsive */
+    .hardware-card--tablet .hardware-card__media img{max-width:min(100%, 240px);} /* responsive */
+    .hardware-card--tablet .hardware-card__media{display:flex;justify-content:center;width:100%;}
+    .hardware-card--tablet .hardware-card__media img{margin-inline:auto;}
+    /* Footer */
+    .footer{padding:56px 0;background:var(--bg);border-top:1px solid var(--line);}
+    .footer__inner{display:grid;gap:var(--space-8);text-align:center;}
+    .footer__nav{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;font-size:var(--text-sm);}
+    .footer__nav a{padding:6px 12px;border-radius:999px;border:1px solid transparent;}
+    .footer__nav a:hover{background:var(--bg-soft);}
+    .footer__copy{font-size:var(--text-xs);color:var(--muted);}
+  </style>
   <!-- Canonical & hreflang -->
   <link rel="canonical" href="https://alertaescolar.mx/sistema-control-asistencia-escolar.html" />
   <link rel="alternate" hreflang="es" href="https://alertaescolar.mx/sistema-control-asistencia-escolar.html" />

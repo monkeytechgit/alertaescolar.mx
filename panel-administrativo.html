@@ -106,6 +106,41 @@
     ]
   }
   </script>
+  <style>
+    /* Hero estilo igual que app-padres */
+    .admin-hero{padding-block:clamp(56px,9vw,132px);background:linear-gradient(180deg,#fff 0%,#fff 55%,var(--bg-soft) 100%);}    
+    .admin-hero__layout{display:grid;gap:var(--space-10);grid-template-columns:1fr;}    
+    @media (min-width:1024px){.admin-hero__layout{grid-template-columns:1.05fr .95fr;align-items:center;}}
+    .admin-hero__title{font-size:clamp(40px,4.2vw,60px);line-height:1.05;letter-spacing:-.025em;font-weight:700;}
+    .admin-hero__subtitle{margin-top:var(--space-3);font-size:var(--text-lg);color:var(--muted);}    
+    .admin-hero__description{margin-top:var(--space-5);font-size:var(--text-base);color:var(--muted);max-width:60ch;line-height:1.45;}
+    .admin-hero-media{position:relative;display:flex;justify-content:center;}
+    .admin-hero-media img{max-width:420px;width:100%;height:auto;display:block;border-radius:24px;}
+
+  /* Rows estilo kit */
+    .admin-rows{margin-top:var(--space-8);display:grid;gap:var(--space-12);}    
+    .admin-row{display:grid;gap:var(--space-8);align-items:center;grid-template-columns:1fr;}    
+    @media (min-width:1024px){.admin-row{grid-template-columns:1fr 1.05fr;gap:var(--space-12);} .admin-row--reverse{grid-template-columns:1.05fr 1fr;} .admin-row--reverse .admin-row__content{order:1;} .admin-row--reverse .admin-row__media{order:2;}}
+    .admin-row__media{display:flex;justify-content:center;align-items:center;}
+    .admin-row__media-inner{max-width:420px;width:100%;border-radius:20px;}
+    .admin-row__media-inner img{width:100%;display:block;border-radius:16px;}
+    .dual-images-admin{display:grid;gap:var(--space-4);}    
+    @media (min-width:520px){.dual-images-admin{grid-template-columns:1fr 1fr;}}
+    .dual-images-admin img{border-radius:16px;}
+    .admin-row__content h3{font-size:clamp(26px,2.3vw,38px);letter-spacing:-.02em;margin-bottom:var(--space-3);}    
+    .admin-row__content p{font-size:var(--text-base);color:var(--muted);line-height:1.5;max-width:60ch;margin-bottom:var(--space-4);}    
+    .admin-row__features{display:flex;flex-wrap:wrap;gap:var(--space-2);}    
+    .admin-row__features .feature-tag{background:var(--bg-soft);color:var(--muted);border:1px solid var(--line);font-size:var(--text-xs);padding:6px 12px;border-radius:999px;font-weight:500;}
+
+    .cta-final{background:var(--bg-soft);}    
+  /* Grid videos admin actualizado */
+  .admin-videos-grid{display:grid;gap:var(--space-8);margin-top:var(--space-8);} 
+  @media (min-width:800px){.admin-videos-grid{grid-template-columns:1fr 1fr;}}
+  .admin-video-card{background:var(--surface);border:1px solid var(--line);padding:18px;border-radius:var(--r-xl);display:flex;flex-direction:column;gap:var(--space-3);} 
+  .admin-video-card h3{font-size:clamp(16px,1.3vw,20px);} 
+  .admin-video-wrapper{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:16px;background:#000;} 
+  .admin-video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  </style>
 
   <link rel="canonical" href="https://alertaescolar.mx/panel-administrativo.html" />
   <link rel="alternate" hreflang="es" href="https://alertaescolar.mx/panel-administrativo.html" />
