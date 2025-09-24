@@ -111,8 +111,13 @@ h1,h2,h3,h4,h5,h6{ margin:0; font-weight:700; color:var(--text); letter-spacing:
 
 /* Hamburger */
 .nav__toggle{ width:32px; height:24px; display:none; flex-direction:column; justify-content:space-between; }
-.nav__toggle span{ height:2px; background:var(--text); border-radius:2px; display:block; transition:transform var(--duration) var(--easing), opacity var(--duration) var(--easing); }
-
+.nav__toggle span {
+  height:2px;
+  background:var(--text);
+  border-radius:2px;
+  display:block;
+  transition:transform var(--duration) var(--easing), opacity var(--duration) var(--easing);
+}
 @media (max-width:1024px){
   .header{
     background:var(--bg);
